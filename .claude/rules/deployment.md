@@ -1,6 +1,7 @@
 # Deployment & repo safety
 
-- `main` is production: anything pushed to it goes live on GitHub Pages at rubberduckco.co.za. Never commit or push to `main` without the user explicitly asking; for larger changes, offer a branch first.
+- `main` is production: anything pushed to it goes live on GitHub Pages at rubberduckco.co.za.
+- Never commit or push directly to `main`, even when asked to "commit". Always create a branch first (e.g. `feature/...`, `fix/...`, `chore/...`), commit there, and get changes into `main` through a pull request.
 - No Claude attribution: commit messages must not include a `Co-Authored-By: Claude ...` trailer, and PR descriptions must not include a "🤖 Generated with Claude Code" line or any other AI attribution. Don't add Claude/AI labels to PRs either.
 
 ## Pull requests
