@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Page not found | Rubber Duck Co</title>
+  <meta name="description" content="There's no page at this address. Head back to the Rubber Duck Co home page.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#bdebf5">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rubber Duck Co">
+  <meta property="og:title" content="Page not found | Rubber Duck Co">
+  <meta property="og:image" content="https://rubberduckco.co.za/assets/img/og.png">
+  <link rel="preload" href="/assets/fonts/fredoka-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="/#brasscount">BrassCount</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="brass-controls" data-brass-controls hidden>
+        <p class="brass-count"><span class="brass-number" data-brass-count>0</span> brass</p>
+        <button class="chip" type="button" data-brass-sweep>Sweep</button>
+        <button class="chip" type="button" data-brass-sound aria-pressed="true">
+          <svg class="sound-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9z"/>
+            <path class="sound-waves" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>
+            <path class="sound-off" d="M17 9l5 6M22 9l-5 6"/>
+          </svg>
+          <span class="chip-label">Sound</span>
+        </button>
+      </div>
+      <p class="toast" data-brass-toast aria-live="polite"></p>
+    </div>
+  </header>
+
+  <main id="main" class="wrap missed">
+    <a class="lockup-stacked" href="/">
+      <img src="/assets/img/logo/mark.svg" alt="" width="168" height="148">
+      <span>Rubber Duck Co</span>
+    </a>
+    <h1 data-solid>Mike.</h1>
+    <p>In shooting, a miss is scored as a Mike, and this was one. There's no page at this address.</p>
+    <a class="button" href="/">Back to the home page</a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="lockup" href="/">
+        <img class="lockup-mark" src="/assets/img/logo/mark-light.svg" alt="" width="168" height="148" loading="lazy">
+        <span>Rubber Duck Co</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="/privacy.html">Privacy policy</a></li>
+        <li><a href="mailto:rubberduckcoza@gmail.com">rubberduckcoza@gmail.com</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Rubber Duck Co</p>
+    </div>
+  </footer>
+</body>
+</html>

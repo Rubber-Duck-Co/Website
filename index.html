@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Rubber Duck Co | Makers of the BrassCount shot timer</title>
+  <meta name="description" content="Rubber Duck Co makes BrassCount, a shot timer for sport shooters on Android, and soon games. No accounts, no tracking: your data stays on your phone.">
+  <link rel="canonical" href="https://rubberduckco.co.za/">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#bdebf5">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rubber Duck Co">
+  <meta property="og:title" content="Rubber Duck Co">
+  <meta property="og:description" content="Makers of BrassCount, a shot timer for sport shooters. Games are next.">
+  <meta property="og:url" content="https://rubberduckco.co.za/">
+  <meta property="og:image" content="https://rubberduckco.co.za/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Rubber Duck Co logo: a yellow rubber duck next to the company name">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/fredoka-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="lockup" href="index.html">
+        <img class="lockup-mark" src="assets/img/logo/mark.svg" alt="" width="168" height="148">
+        <span>Rubber Duck Co</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html#brasscount">BrassCount</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="brass-controls" data-brass-controls hidden>
+        <p class="brass-count"><span class="brass-number" data-brass-count>0</span> brass</p>
+        <button class="chip" type="button" data-brass-sweep>Sweep</button>
+        <button class="chip" type="button" data-brass-sound aria-pressed="true">
+          <svg class="sound-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9z"/>
+            <path class="sound-waves" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>
+            <path class="sound-off" d="M17 9l5 6M22 9l-5 6"/>
+          </svg>
+          <span class="chip-label">Sound</span>
+        </button>
+      </div>
+      <p class="toast" data-brass-toast aria-live="polite"></p>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title" data-solid>We started as a joke on the range. Then we built a shot timer.</h1>
+        <p class="lead">Rubber Duck Co makes apps for sport shooters, and soon games. Our first app is BrassCount, a shot timer that lives on your phone.</p>
+        <div class="hero-actions">
+          <a class="button" href="#brasscount">Meet BrassCount</a>
+          <button class="button button-quiet" type="button" data-brass-drop hidden>Drop brass</button>
+        </div>
+        <p class="hint" data-brass-hint hidden>Click or tap anywhere. Mind the brass.</p>
+      </div>
+
+      <button class="duck" type="button" data-duck aria-label="Squeeze the duck">
+        <svg class="duck-svg" data-solid="duck" viewBox="16 26 168 148" width="168" height="148" aria-hidden="true" focusable="false">
+          <g transform="translate(-4 -4)">
+            <g stroke="#1F2A44" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+              <path data-hull d="M24 92 C40 100 58 104 82 104 L112 102 C150 98 180 116 178 140 C175 164 148 174 104 174 C60 174 30 160 26 134 C24 120 24 106 24 92 Z" fill="#FFD23F"/>
+              <path d="M84 134 C98 120 130 120 146 136 C130 152 98 152 84 134 Z" fill="#F5B300"/>
+              <circle data-hull cx="118" cy="70" r="36" fill="#FFD23F"/>
+              <path data-hull d="M148 60 C162 58 176 62 184 70 C176 80 162 84 148 82 Z" fill="#FF8A2B"/>
+            </g>
+            <circle cx="128" cy="62" r="6" fill="#1F2A44"/>
+            <circle cx="130" cy="60" r="2" fill="#FFFFFF"/>
+          </g>
+        </svg>
+      </button>
+    </section>
+
+    <section class="section wrap" id="brasscount" aria-labelledby="brasscount-title">
+      <div class="section-intro">
+        <h2 id="brasscount-title" data-solid>BrassCount</h2>
+        <p>A shot timer for your Android phone. Set up a drill, wait for the beep, shoot. BrassCount hears every shot and shows your first shot, your splits and your total time.</p>
+        <p class="status">Coming soon to Google Play</p>
+      </div>
+      <dl class="features">
+        <div>
+          <dt>Timer</dt>
+          <dd>A random start delay, a loud beep, and every shot picked up through your phone's microphone.</dd>
+        </div>
+        <div>
+          <dt>Drills</dt>
+          <dd>Build your own drills with par times, start delays and shot counts, then run them as often as you like.</dd>
+        </div>
+        <div>
+          <dt>Calibration</dt>
+          <dd>Tune shot detection to your gun and your range, indoors or out, so it counts your shots and not the bay next door.</dd>
+        </div>
+        <div>
+          <dt>Log</dt>
+          <dd>Every string, split and session is saved on your phone, so you can see whether you're getting faster.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="section wrap" aria-labelledby="promise-title">
+      <div class="promise">
+        <h2 id="promise-title" data-solid>Your data stays on your phone.</h2>
+        <p>BrassCount has no accounts, no ads, no analytics and no tracking. Your drills, times and calibration are saved on your phone and nowhere else. We never see any of it.</p>
+        <p><a href="privacy.html">Read the privacy policy</a></p>
+      </div>
+    </section>
+
+    <section class="section wrap games" aria-labelledby="games-title">
+      <div class="section-intro">
+        <h2 id="games-title" data-solid>Next up: games</h2>
+        <p>We've got a few game ideas floating in the tub. Nothing to show yet, but when there is, it'll be here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="lockup" href="index.html">
+        <img class="lockup-mark" src="assets/img/logo/mark-light.svg" alt="" width="168" height="148" loading="lazy">
+        <span>Rubber Duck Co</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy policy</a></li>
+        <li><a href="mailto:rubberduckcoza@gmail.com">rubberduckcoza@gmail.com</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Rubber Duck Co</p>
+    </div>
+  </footer>
+</body>
+</html>
