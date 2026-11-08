@@ -1,0 +1,677 @@
+/* Fredoka matches the logo lockups; everything else uses the system font. */
+@font-face {
+  font-family: "Fredoka";
+  src: url("../fonts/fredoka-600-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  --sky: #bdebf5;
+  --navy: #1f2a44;
+  --navy-soft: #3a4766;
+  --duck: #ffd23f;
+  --duck-deep: #f5b300;
+  --beak: #ff8a2b;
+  --paper: #ffffff;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Fredoka", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+  --step-3: clamp(2.5rem, 1.5rem + 4.6vw, 4.75rem);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: clamp(3.5rem, 2rem + 6vw, 7rem);
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --max-width: 72rem;
+  --measure: 62ch;
+  --line: 3px;
+  --lift: 4px;
+  --radius-pill: 999px;
+  --radius-panel: 1.5rem;
+  --pile-height: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sky);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-3);
+  line-height: 1;
+}
+
+h2 {
+  font-size: var(--step-2);
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-color: var(--beak);
+}
+
+:focus-visible {
+  outline: 3px solid var(--beak);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-1);
+  left: var(--space-1);
+  z-index: 20;
+  padding: var(--space-1) var(--space-2);
+  border: var(--line) solid var(--navy);
+  border-radius: var(--radius-pill);
+  background: var(--duck);
+  font-weight: 700;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Lockup: the horizontal lockup from the logo system.
+   Mark height is 1.85x the type size and the gap 0.5x, as on the artboard. */
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.lockup-mark {
+  display: block;
+  width: auto;
+  height: 1.85em;
+}
+
+/* Header */
+.site-header {
+  padding-block: var(--space-2);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 600;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding-block: 0.6rem;
+  text-decoration: none;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
+.brass-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.brass-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.brass-count::before {
+  content: "";
+  width: 1.75rem;
+  height: 0.8125rem;
+  background: url("../img/casing.svg") center / contain no-repeat;
+}
+
+.brass-number {
+  display: inline-block;
+}
+
+.brass-number.is-bumped {
+  animation: bump 180ms ease-out;
+}
+
+@keyframes bump {
+  40% {
+    transform: scale(1.25);
+  }
+}
+
+.toast {
+  position: fixed;
+  top: var(--space-2);
+  left: 50%;
+  z-index: 30;
+  width: max-content;
+  max-width: calc(100% - 2 * var(--gutter));
+  padding: 0.6rem 1.1rem;
+  border: var(--line) solid var(--navy);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  box-shadow: 0 var(--lift) 0 var(--navy);
+  font-weight: 600;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.toast:empty {
+  display: none;
+}
+
+/* Buttons: yellow stickers that sink into their shadow when pressed */
+.button,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  min-height: 2.75rem;
+  border: var(--line) solid var(--navy);
+  border-radius: var(--radius-pill);
+  background: var(--duck);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 var(--lift) 0 var(--navy);
+}
+
+.button {
+  padding: 0.65em 1.3em;
+  font-size: 1.125rem;
+}
+
+.chip {
+  --lift: 3px;
+  padding: 0.35em 0.95em;
+  font-size: 1rem;
+  background: var(--paper);
+}
+
+.button-quiet {
+  background: var(--paper);
+}
+
+.button:hover,
+.chip:hover {
+  background: var(--beak);
+}
+
+.button:active,
+.chip:active {
+  box-shadow: 0 0 0 var(--navy);
+  transform: translateY(var(--lift));
+}
+
+.sound-icon {
+  width: 1.1em;
+  height: 1.1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Icon-only on small screens; the hidden label stays the button's name */
+.chip-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.chip[aria-pressed="false"] .sound-waves,
+.chip[aria-pressed="true"] .sound-off {
+  display: none;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-4) var(--space-5);
+}
+
+.hero-copy {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.lead {
+  max-width: 34rem;
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.hint {
+  color: var(--navy-soft);
+  font-weight: 600;
+}
+
+.duck {
+  justify-self: end;
+  width: min(70%, 26rem);
+  padding: 0;
+  border: 0;
+  border-radius: 2rem;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.duck-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 100%;
+}
+
+/* Sections */
+.section {
+  display: grid;
+  gap: var(--space-3) var(--space-4);
+  padding-block: var(--space-4);
+}
+
+.section-intro {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  max-width: var(--measure);
+}
+
+.status {
+  justify-self: start;
+  padding: 0.3rem 0.9rem;
+  border: var(--line) solid var(--navy);
+  border-radius: var(--radius-pill);
+  background: var(--duck);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.features {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.features div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.features dt {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+}
+
+.features dt::before {
+  content: "";
+  flex: none;
+  width: 1.75rem;
+  height: 0.8125rem;
+  background: url("../img/casing.svg") center / contain no-repeat;
+}
+
+.features dd {
+  margin: 0;
+  max-width: 38ch;
+}
+
+.promise {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 46rem;
+  padding: clamp(1.5rem, 1rem + 3vw, 3rem);
+  border: var(--line) solid var(--navy);
+  border-radius: var(--radius-panel);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--navy);
+}
+
+.promise p {
+  max-width: var(--measure);
+}
+
+.games {
+  padding-bottom: var(--space-5);
+}
+
+/* Footer: the dark-background lockup on a navy band, padded so the brass pile never covers it */
+.site-footer {
+  padding-top: var(--space-4);
+  padding-bottom: calc(var(--space-4) + var(--pile-height));
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.footer-inner {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links a {
+  display: inline-block;
+  padding-block: 0.4rem;
+  overflow-wrap: anywhere;
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--duck);
+}
+
+.footer-note {
+  color: #d5dbe8;
+}
+
+/* Privacy policy */
+.policy {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 46rem;
+  margin-block: var(--space-3) var(--space-5);
+  padding: clamp(1.25rem, 0.75rem + 3vw, 3rem);
+  border: var(--line) solid var(--navy);
+  border-radius: var(--radius-panel);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--navy);
+}
+
+.policy h1 {
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+}
+
+.policy h2 {
+  margin-top: var(--space-3);
+  font-size: clamp(1.375rem, 1.2rem + 1vw, 1.75rem);
+}
+
+.policy p,
+.policy li {
+  max-width: var(--measure);
+}
+
+.policy ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.policy-meta {
+  color: var(--navy-soft);
+}
+
+.policy-short {
+  padding: var(--space-2) var(--space-3);
+  border: var(--line) solid var(--navy);
+  border-radius: 1rem;
+  background: var(--duck);
+  font-weight: 600;
+}
+
+/* 404: the stacked lockup */
+.missed {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-5);
+  text-align: center;
+}
+
+.lockup-stacked {
+  display: grid;
+  justify-items: center;
+  gap: 0.25em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.lockup-stacked img {
+  width: auto;
+  height: 4.6em;
+}
+
+.missed p {
+  max-width: 40ch;
+}
+
+/* The brass layer sits over everything but never catches clicks */
+.brass-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (min-width: 40em) {
+  .lockup {
+    font-size: 1.375rem;
+  }
+
+  .brass-controls {
+    width: auto;
+    margin-left: auto;
+  }
+
+  .brass-count {
+    margin-right: var(--space-1);
+  }
+
+  .chip-label {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4) var(--space-3);
+  }
+
+  .footer-inner {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+
+  .footer-links {
+    justify-content: flex-end;
+  }
+
+  .footer-note {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 56em) {
+  .hero {
+    grid-template-columns: 7fr 5fr;
+    padding-top: var(--space-5);
+  }
+
+  .duck {
+    width: 100%;
+  }
+
+  .section {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button,
+  .chip {
+    transition: transform 90ms ease-out, box-shadow 90ms ease-out, background-color 120ms ease-out;
+  }
+
+  .duck-svg {
+    transition: transform 140ms cubic-bezier(0.3, 1.6, 0.5, 1);
+  }
+
+  .duck:active .duck-svg,
+  .duck.is-squeezed .duck-svg {
+    transform: scale(1.08, 0.86);
+    transition-duration: 70ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brass-number.is-bumped {
+    animation: none;
+  }
+}
+
+@media print {
+  body {
+    background: none;
+  }
+
+  .brass-canvas,
+  .brass-controls,
+  .toast,
+  .skip-link,
+  .site-header nav {
+    display: none !important;
+  }
+
+  .lockup-mark {
+    content: url("../img/logo/mark-mono-navy.svg");
+  }
+
+  .policy {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .site-footer {
+    background: none;
+    color: var(--navy);
+  }
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 26 168 148" width="168" height="148">
+  <defs>
+    <mask id="rdc-mono-white-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+      <rect x="0" y="0" width="200" height="200" fill="#FFFFFF"/>
+      <circle cx="128" cy="62" r="6" fill="#000000"/>
+      <path d="M88 134 C100 124 128 124 142 136" stroke="#000000" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M147 58 L147 84" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    </mask>
+  </defs>
+  <g transform="translate(-4 -4)" fill="#FFFFFF" mask="url(#rdc-mono-white-mask)">
+    <path d="M24 92 C40 100 58 104 82 104 L112 102 C150 98 180 116 178 140 C175 164 148 174 104 174 C60 174 30 160 26 134 C24 120 24 106 24 92 Z"/>
+    <circle cx="118" cy="70" r="36"/>
+    <path d="M148 60 C162 58 176 62 184 70 C176 80 162 84 148 82 Z"/>
+  </g>
+</svg>
